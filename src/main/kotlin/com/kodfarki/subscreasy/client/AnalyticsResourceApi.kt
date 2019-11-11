@@ -14,7 +14,7 @@ package com.kodfarki.subscreasy.client
 
 import io.swagger.client.infrastructure.*
 
-class AnalyticsResourceApi(basePath: kotlin.String = "https://localhost:8080") : ApiClient(basePath) {
+class AnalyticsResourceApi(basePath: kotlin.String = "https://app.subscreasy.com") : ApiClient(basePath) {
 
     /**
     * getDashboardAnalytics

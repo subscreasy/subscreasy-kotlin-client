@@ -1,16 +1,64 @@
 # UserResourceApi
 
-All URIs are relative to *https://localhost:8080*
+All URIs are relative to *https://app.subscreasy.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**createCompanyUserUsingPOST**](UserResourceApi.md#createCompanyUserUsingPOST) | **POST** /api/users/company | createCompanyUser
 [**createUserUsingPOST**](UserResourceApi.md#createUserUsingPOST) | **POST** /api/users | createUser
 [**deleteUserUsingDELETE**](UserResourceApi.md#deleteUserUsingDELETE) | **DELETE** /api/users/{login} | deleteUser
+[**getAllUsersByAuthenticatedCompanyUsingGET**](UserResourceApi.md#getAllUsersByAuthenticatedCompanyUsingGET) | **GET** /api/users/company | getAllUsersByAuthenticatedCompany
+[**getAllUsersByCompanyIdUsingGET**](UserResourceApi.md#getAllUsersByCompanyIdUsingGET) | **GET** /api/users/company/{companyId} | getAllUsersByCompanyId
 [**getAllUsersUsingGET**](UserResourceApi.md#getAllUsersUsingGET) | **GET** /api/users | getAllUsers
 [**getAuthoritiesUsingGET**](UserResourceApi.md#getAuthoritiesUsingGET) | **GET** /api/users/authorities | getAuthorities
 [**getUserUsingGET**](UserResourceApi.md#getUserUsingGET) | **GET** /api/users/{login} | getUser
 [**updateUserUsingPUT**](UserResourceApi.md#updateUserUsingPUT) | **PUT** /api/users | updateUser
 
+
+<a name="createCompanyUserUsingPOST"></a>
+# **createCompanyUserUsingPOST**
+> ResponseEntity createCompanyUserUsingPOST(managedUserVM)
+
+createCompanyUser
+
+### Example
+```kotlin
+// Import classes:
+//import io.swagger.client.infrastructure.*
+//import com.kodfarki.subscreasy.client.model.*
+
+val apiInstance = UserResourceApi()
+val managedUserVM : ManagedUserVM =  // ManagedUserVM | managedUserVM
+try {
+    val result : ResponseEntity = apiInstance.createCompanyUserUsingPOST(managedUserVM)
+    println(result)
+} catch (e: ClientException) {
+    println("4xx response calling UserResourceApi#createCompanyUserUsingPOST")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling UserResourceApi#createCompanyUserUsingPOST")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **managedUserVM** | [**ManagedUserVM**](ManagedUserVM.md)| managedUserVM |
+
+### Return type
+
+[**ResponseEntity**](ResponseEntity.md)
+
+### Authorization
+
+[apiKey](../README.md#apiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: */*
 
 <a name="createUserUsingPOST"></a>
 # **createUserUsingPOST**
@@ -91,6 +139,92 @@ Name | Type | Description  | Notes
 ### Return type
 
 null (empty response body)
+
+### Authorization
+
+[apiKey](../README.md#apiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: */*
+
+<a name="getAllUsersByAuthenticatedCompanyUsingGET"></a>
+# **getAllUsersByAuthenticatedCompanyUsingGET**
+> kotlin.Array&lt;User&gt; getAllUsersByAuthenticatedCompanyUsingGET()
+
+getAllUsersByAuthenticatedCompany
+
+### Example
+```kotlin
+// Import classes:
+//import io.swagger.client.infrastructure.*
+//import com.kodfarki.subscreasy.client.model.*
+
+val apiInstance = UserResourceApi()
+try {
+    val result : kotlin.Array<User> = apiInstance.getAllUsersByAuthenticatedCompanyUsingGET()
+    println(result)
+} catch (e: ClientException) {
+    println("4xx response calling UserResourceApi#getAllUsersByAuthenticatedCompanyUsingGET")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling UserResourceApi#getAllUsersByAuthenticatedCompanyUsingGET")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+[**kotlin.Array&lt;User&gt;**](User.md)
+
+### Authorization
+
+[apiKey](../README.md#apiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: */*
+
+<a name="getAllUsersByCompanyIdUsingGET"></a>
+# **getAllUsersByCompanyIdUsingGET**
+> kotlin.Array&lt;User&gt; getAllUsersByCompanyIdUsingGET(companyId)
+
+getAllUsersByCompanyId
+
+### Example
+```kotlin
+// Import classes:
+//import io.swagger.client.infrastructure.*
+//import com.kodfarki.subscreasy.client.model.*
+
+val apiInstance = UserResourceApi()
+val companyId : kotlin.Long = 789 // kotlin.Long | companyId
+try {
+    val result : kotlin.Array<User> = apiInstance.getAllUsersByCompanyIdUsingGET(companyId)
+    println(result)
+} catch (e: ClientException) {
+    println("4xx response calling UserResourceApi#getAllUsersByCompanyIdUsingGET")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling UserResourceApi#getAllUsersByCompanyIdUsingGET")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **companyId** | **kotlin.Long**| companyId |
+
+### Return type
+
+[**kotlin.Array&lt;User&gt;**](User.md)
 
 ### Authorization
 
@@ -193,7 +327,7 @@ This endpoint does not need any parameter.
 
 <a name="getUserUsingGET"></a>
 # **getUserUsingGET**
-> User getUserUsingGET(login)
+> UserDTO getUserUsingGET(login)
 
 getUser
 
@@ -206,7 +340,7 @@ getUser
 val apiInstance = UserResourceApi()
 val login : kotlin.String = login_example // kotlin.String | login
 try {
-    val result : User = apiInstance.getUserUsingGET(login)
+    val result : UserDTO = apiInstance.getUserUsingGET(login)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling UserResourceApi#getUserUsingGET")
@@ -225,7 +359,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**User**](User.md)
+[**UserDTO**](UserDTO.md)
 
 ### Authorization
 

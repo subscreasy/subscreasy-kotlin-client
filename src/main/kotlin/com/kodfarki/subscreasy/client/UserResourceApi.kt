@@ -14,10 +14,43 @@ package com.kodfarki.subscreasy.client
 import com.kodfarki.subscreasy.client.model.ManagedUserVM
 import com.kodfarki.subscreasy.client.model.ResponseEntity
 import com.kodfarki.subscreasy.client.model.User
+import com.kodfarki.subscreasy.client.model.UserDTO
 
 import io.swagger.client.infrastructure.*
 
-class UserResourceApi(basePath: kotlin.String = "https://localhost:8080") : ApiClient(basePath) {
+class UserResourceApi(basePath: kotlin.String = "https://app.subscreasy.com") : ApiClient(basePath) {
+
+    /**
+    * createCompanyUser
+    * 
+    * @param managedUserVM managedUserVM 
+    * @return ResponseEntity
+    */
+    @Suppress("UNCHECKED_CAST")
+    fun createCompanyUserUsingPOST(managedUserVM: ManagedUserVM) : ResponseEntity {
+        val localVariableBody: kotlin.Any? = managedUserVM
+        val localVariableQuery: MultiValueMap = mapOf()
+        val localVariableHeaders: kotlin.collections.Map<kotlin.String,kotlin.String> = mapOf()
+        val localVariableConfig = RequestConfig(
+            RequestMethod.POST,
+            "/api/users/company",
+            query = localVariableQuery,
+            headers = localVariableHeaders
+        )
+        val response = request<ResponseEntity>(
+            localVariableConfig,
+            localVariableBody
+        )
+
+        return when (response.responseType) {
+            ResponseType.Success -> (response as Success<*>).data as ResponseEntity
+            ResponseType.Informational -> TODO()
+            ResponseType.Redirection -> TODO()
+            ResponseType.ClientError -> throw ClientException((response as ClientError<*>).body as? String ?: "Client error")
+            ResponseType.ServerError -> throw ServerException((response as ServerError<*>).message ?: "Server error")
+            else -> throw kotlin.IllegalStateException("Undefined ResponseType.")
+        }
+    }
 
     /**
     * createUser
@@ -74,6 +107,69 @@ class UserResourceApi(basePath: kotlin.String = "https://localhost:8080") : ApiC
 
         return when (response.responseType) {
             ResponseType.Success -> Unit
+            ResponseType.Informational -> TODO()
+            ResponseType.Redirection -> TODO()
+            ResponseType.ClientError -> throw ClientException((response as ClientError<*>).body as? String ?: "Client error")
+            ResponseType.ServerError -> throw ServerException((response as ServerError<*>).message ?: "Server error")
+            else -> throw kotlin.IllegalStateException("Undefined ResponseType.")
+        }
+    }
+
+    /**
+    * getAllUsersByAuthenticatedCompany
+    * 
+    * @return kotlin.Array<User>
+    */
+    @Suppress("UNCHECKED_CAST")
+    fun getAllUsersByAuthenticatedCompanyUsingGET() : kotlin.Array<User> {
+        val localVariableBody: kotlin.Any? = null
+        val localVariableQuery: MultiValueMap = mapOf()
+        val localVariableHeaders: kotlin.collections.Map<kotlin.String,kotlin.String> = mapOf()
+        val localVariableConfig = RequestConfig(
+            RequestMethod.GET,
+            "/api/users/company",
+            query = localVariableQuery,
+            headers = localVariableHeaders
+        )
+        val response = request<kotlin.Array<User>>(
+            localVariableConfig,
+            localVariableBody
+        )
+
+        return when (response.responseType) {
+            ResponseType.Success -> (response as Success<*>).data as kotlin.Array<User>
+            ResponseType.Informational -> TODO()
+            ResponseType.Redirection -> TODO()
+            ResponseType.ClientError -> throw ClientException((response as ClientError<*>).body as? String ?: "Client error")
+            ResponseType.ServerError -> throw ServerException((response as ServerError<*>).message ?: "Server error")
+            else -> throw kotlin.IllegalStateException("Undefined ResponseType.")
+        }
+    }
+
+    /**
+    * getAllUsersByCompanyId
+    * 
+    * @param companyId companyId 
+    * @return kotlin.Array<User>
+    */
+    @Suppress("UNCHECKED_CAST")
+    fun getAllUsersByCompanyIdUsingGET(companyId: kotlin.Long) : kotlin.Array<User> {
+        val localVariableBody: kotlin.Any? = null
+        val localVariableQuery: MultiValueMap = mapOf()
+        val localVariableHeaders: kotlin.collections.Map<kotlin.String,kotlin.String> = mapOf()
+        val localVariableConfig = RequestConfig(
+            RequestMethod.GET,
+            "/api/users/company/{companyId}".replace("{"+"companyId"+"}", "$companyId"),
+            query = localVariableQuery,
+            headers = localVariableHeaders
+        )
+        val response = request<kotlin.Array<User>>(
+            localVariableConfig,
+            localVariableBody
+        )
+
+        return when (response.responseType) {
+            ResponseType.Success -> (response as Success<*>).data as kotlin.Array<User>
             ResponseType.Informational -> TODO()
             ResponseType.Redirection -> TODO()
             ResponseType.ClientError -> throw ClientException((response as ClientError<*>).body as? String ?: "Client error")
@@ -151,10 +247,10 @@ class UserResourceApi(basePath: kotlin.String = "https://localhost:8080") : ApiC
     * getUser
     * 
     * @param login login 
-    * @return User
+    * @return UserDTO
     */
     @Suppress("UNCHECKED_CAST")
-    fun getUserUsingGET(login: kotlin.String) : User {
+    fun getUserUsingGET(login: kotlin.String) : UserDTO {
         val localVariableBody: kotlin.Any? = null
         val localVariableQuery: MultiValueMap = mapOf()
         val localVariableHeaders: kotlin.collections.Map<kotlin.String,kotlin.String> = mapOf()
@@ -164,13 +260,13 @@ class UserResourceApi(basePath: kotlin.String = "https://localhost:8080") : ApiC
             query = localVariableQuery,
             headers = localVariableHeaders
         )
-        val response = request<User>(
+        val response = request<UserDTO>(
             localVariableConfig,
             localVariableBody
         )
 
         return when (response.responseType) {
-            ResponseType.Success -> (response as Success<*>).data as User
+            ResponseType.Success -> (response as Success<*>).data as UserDTO
             ResponseType.Informational -> TODO()
             ResponseType.Redirection -> TODO()
             ResponseType.ClientError -> throw ClientException((response as ClientError<*>).body as? String ?: "Client error")

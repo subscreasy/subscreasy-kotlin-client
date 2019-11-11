@@ -15,7 +15,7 @@ import com.kodfarki.subscreasy.client.model.ServiceOffering
 
 import io.swagger.client.infrastructure.*
 
-class ServiceOfferingResourceApi(basePath: kotlin.String = "https://localhost:8080") : ApiClient(basePath) {
+class ServiceOfferingResourceApi(basePath: kotlin.String = "https://app.subscreasy.com") : ApiClient(basePath) {
 
     /**
     * createServiceOffering

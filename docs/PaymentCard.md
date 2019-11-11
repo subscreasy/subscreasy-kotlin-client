@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **cardAlias** | **kotlin.String** |  |  [optional]
-**cardExpiry** | **kotlin.String** |  |  [optional]
+**cardFamily** | **kotlin.String** |  |  [optional]
 **cardHolderName** | **kotlin.String** |  |  [optional]
 **cardNumber** | **kotlin.String** |  |  [optional]
 **cardToken** | **kotlin.String** |  |  [optional]

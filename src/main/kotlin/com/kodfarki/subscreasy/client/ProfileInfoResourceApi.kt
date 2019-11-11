@@ -15,7 +15,7 @@ import com.kodfarki.subscreasy.client.model.ProfileInfoVM
 
 import io.swagger.client.infrastructure.*
 
-class ProfileInfoResourceApi(basePath: kotlin.String = "https://localhost:8080") : ApiClient(basePath) {
+class ProfileInfoResourceApi(basePath: kotlin.String = "https://app.subscreasy.com") : ApiClient(basePath) {
 
     /**
     * getActiveProfiles

@@ -15,7 +15,7 @@ import com.kodfarki.subscreasy.client.model.History
 
 import io.swagger.client.infrastructure.*
 
-class HistoryResourceApi(basePath: kotlin.String = "https://localhost:8080") : ApiClient(basePath) {
+class HistoryResourceApi(basePath: kotlin.String = "https://app.subscreasy.com") : ApiClient(basePath) {
 
     /**
     * createHistory

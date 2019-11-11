@@ -15,7 +15,7 @@ import com.kodfarki.subscreasy.client.model.MessageTemplate
 
 import io.swagger.client.infrastructure.*
 
-class MessageTemplateResourceApi(basePath: kotlin.String = "https://localhost:8080") : ApiClient(basePath) {
+class MessageTemplateResourceApi(basePath: kotlin.String = "https://app.subscreasy.com") : ApiClient(basePath) {
 
     /**
     * createMessageTemplate

@@ -15,7 +15,7 @@ import com.kodfarki.subscreasy.client.model.Invoice
 
 import io.swagger.client.infrastructure.*
 
-class InvoiceResourceApi(basePath: kotlin.String = "https://localhost:8080") : ApiClient(basePath) {
+class InvoiceResourceApi(basePath: kotlin.String = "https://app.subscreasy.com") : ApiClient(basePath) {
 
     /**
     * createInvoice

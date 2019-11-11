@@ -16,10 +16,12 @@ package com.kodfarki.subscreasy.client.model
  * 
  * @param activeProfiles 
  * @param ribbonEnv 
+ * @param version 
  */
 data class ProfileInfoVM (
     val activeProfiles: kotlin.Array<kotlin.String>? = null,
-    val ribbonEnv: kotlin.String? = null
+    val ribbonEnv: kotlin.String? = null,
+    val version: kotlin.String? = null
 ) {
 
 }

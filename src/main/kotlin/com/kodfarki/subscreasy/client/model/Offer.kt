@@ -17,26 +17,82 @@ import com.kodfarki.subscreasy.client.model.RecurrencePeriod
 /**
  * 
  * @param company 
+ * @param createDate 
+ * @param currency 
+ * @param description 
+ * @param disablePaymentForm 
  * @param id 
+ * @param imagePath 
+ * @param multiplePurchase 
  * @param name 
  * @param openEnded 
+ * @param physicalProduct 
  * @param price 
+ * @param productType 
  * @param recurrence 
  * @param recurrenceCount 
+ * @param renewalBillcycleBased 
+ * @param renewalType 
  * @param secureId 
  * @param trialPeriod 
  */
 data class Offer (
     val company: Company,
+    val currency: Offer.Currency,
+    val disablePaymentForm: kotlin.Boolean,
+    val multiplePurchase: kotlin.Boolean,
     val name: kotlin.String,
     val openEnded: kotlin.Boolean,
     val price: java.math.BigDecimal,
-    val recurrence: RecurrencePeriod,
+    val createDate: java.time.LocalDateTime? = null,
+    val description: kotlin.String? = null,
     val id: kotlin.Long? = null,
+    val imagePath: kotlin.String? = null,
+    val physicalProduct: kotlin.Boolean? = null,
+    val productType: Offer.ProductType? = null,
+    val recurrence: RecurrencePeriod? = null,
     val recurrenceCount: kotlin.Int? = null,
+    val renewalBillcycleBased: kotlin.Boolean? = null,
+    val renewalType: Offer.RenewalType? = null,
     val secureId: kotlin.String? = null,
     val trialPeriod: kotlin.Int? = null
 ) {
+
+    /**
+    * 
+    * Values: tRY,uSD
+    */
+    enum class Currency(val value: kotlin.Any){
+    
+        tRY("TRY"),
+    
+        uSD("USD");
+    
+    }
+
+    /**
+    * 
+    * Values: pHYSICAL,sERVICE
+    */
+    enum class ProductType(val value: kotlin.Any){
+    
+        pHYSICAL("PHYSICAL"),
+    
+        sERVICE("SERVICE");
+    
+    }
+
+    /**
+    * 
+    * Values: bILLCYCLE,sTARTDATE
+    */
+    enum class RenewalType(val value: kotlin.Any){
+    
+        bILLCYCLE("BILLCYCLE"),
+    
+        sTARTDATE("START_DATE");
+    
+    }
 
 }
 

@@ -15,7 +15,7 @@ package com.kodfarki.subscreasy.client.model
 /**
  * 
  * @param cardAlias 
- * @param cardExpiry 
+ * @param cardFamily 
  * @param cardHolderName 
  * @param cardNumber 
  * @param cardToken 
@@ -27,7 +27,7 @@ package com.kodfarki.subscreasy.client.model
  */
 data class PaymentCard (
     val cardAlias: kotlin.String? = null,
-    val cardExpiry: kotlin.String? = null,
+    val cardFamily: kotlin.String? = null,
     val cardHolderName: kotlin.String? = null,
     val cardNumber: kotlin.String? = null,
     val cardToken: kotlin.String? = null,

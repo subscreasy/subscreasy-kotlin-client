@@ -13,7 +13,7 @@ package com.kodfarki.subscreasy.client
 
 import com.kodfarki.subscreasy.client.model.Cancellation
 import com.kodfarki.subscreasy.client.model.StartSubscriptionRequest
-import com.kodfarki.subscreasy.client.model.SubscriptionCreateResult
+import com.kodfarki.subscreasy.client.model.StartSubscriptionResult
 import com.kodfarki.subscreasy.client.model.Subsription
 
 import io.swagger.client.infrastructure.*
@@ -152,10 +152,10 @@ class SubsriptionResourceApi(basePath: kotlin.String = "https://localhost:8080")
     * startSubscription
     * 
     * @param request request 
-    * @return SubscriptionCreateResult
+    * @return StartSubscriptionResult
     */
     @Suppress("UNCHECKED_CAST")
-    fun startSubscriptionUsingPOST(request: StartSubscriptionRequest) : SubscriptionCreateResult {
+    fun startSubscriptionUsingPOST(request: StartSubscriptionRequest) : StartSubscriptionResult {
         val localVariableBody: kotlin.Any? = request
         val localVariableQuery: MultiValueMap = mapOf()
         val localVariableHeaders: kotlin.collections.Map<kotlin.String,kotlin.String> = mapOf()
@@ -165,13 +165,13 @@ class SubsriptionResourceApi(basePath: kotlin.String = "https://localhost:8080")
             query = localVariableQuery,
             headers = localVariableHeaders
         )
-        val response = request<SubscriptionCreateResult>(
+        val response = request<StartSubscriptionResult>(
             localVariableConfig,
             localVariableBody
         )
 
         return when (response.responseType) {
-            ResponseType.Success -> (response as Success<*>).data as SubscriptionCreateResult
+            ResponseType.Success -> (response as Success<*>).data as StartSubscriptionResult
             ResponseType.Informational -> TODO()
             ResponseType.Redirection -> TODO()
             ResponseType.ClientError -> throw ClientException((response as ClientError<*>).body as? String ?: "Client error")

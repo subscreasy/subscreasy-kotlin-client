@@ -20,6 +20,7 @@ Name | Type | Description | Notes
 **login** | **kotlin.String** |  | 
 **password** | **kotlin.String** |  |  [optional]
 **resetDate** | **kotlin.String** |  |  [optional]
+**siteName** | **kotlin.String** |  |  [optional]
 
 
 

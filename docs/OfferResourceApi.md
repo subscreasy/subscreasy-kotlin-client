@@ -1,15 +1,62 @@
 # OfferResourceApi
 
-All URIs are relative to *https://localhost:8080*
+All URIs are relative to *https://app.subscreasy.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**archiveOfferUsingPUT**](OfferResourceApi.md#archiveOfferUsingPUT) | **PUT** /api/offers/archive/{id} | archiveOffer
 [**createOfferUsingPOST**](OfferResourceApi.md#createOfferUsingPOST) | **POST** /api/offers | createOffer
 [**deleteOfferUsingDELETE**](OfferResourceApi.md#deleteOfferUsingDELETE) | **DELETE** /api/offers/{id} | deleteOffer
 [**getAllOffersUsingGET**](OfferResourceApi.md#getAllOffersUsingGET) | **GET** /api/offers | getAllOffers
 [**getOfferUsingGET**](OfferResourceApi.md#getOfferUsingGET) | **GET** /api/offers/{id} | getOffer
+[**sendOfferPriceChangedEmailUsingPUT**](OfferResourceApi.md#sendOfferPriceChangedEmailUsingPUT) | **PUT** /api/offers/sendOfferPriceChangedEmail/{offerId} | sendOfferPriceChangedEmail
 [**updateOfferUsingPUT**](OfferResourceApi.md#updateOfferUsingPUT) | **PUT** /api/offers | updateOffer
+[**uploadFileUsingPOST1**](OfferResourceApi.md#uploadFileUsingPOST1) | **POST** /api/offers/uploadFile/{offerId} | uploadFile
 
+
+<a name="archiveOfferUsingPUT"></a>
+# **archiveOfferUsingPUT**
+> archiveOfferUsingPUT(id)
+
+archiveOffer
+
+### Example
+```kotlin
+// Import classes:
+//import io.swagger.client.infrastructure.*
+//import com.kodfarki.subscreasy.client.model.*
+
+val apiInstance = OfferResourceApi()
+val id : kotlin.Long = 789 // kotlin.Long | id
+try {
+    apiInstance.archiveOfferUsingPUT(id)
+} catch (e: ClientException) {
+    println("4xx response calling OfferResourceApi#archiveOfferUsingPUT")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling OfferResourceApi#archiveOfferUsingPUT")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **kotlin.Long**| id |
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+[apiKey](../README.md#apiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: */*
 
 <a name="createOfferUsingPOST"></a>
 # **createOfferUsingPOST**
@@ -186,6 +233,50 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: */*
 
+<a name="sendOfferPriceChangedEmailUsingPUT"></a>
+# **sendOfferPriceChangedEmailUsingPUT**
+> sendOfferPriceChangedEmailUsingPUT(offerId)
+
+sendOfferPriceChangedEmail
+
+### Example
+```kotlin
+// Import classes:
+//import io.swagger.client.infrastructure.*
+//import com.kodfarki.subscreasy.client.model.*
+
+val apiInstance = OfferResourceApi()
+val offerId : kotlin.Long = 789 // kotlin.Long | offerId
+try {
+    apiInstance.sendOfferPriceChangedEmailUsingPUT(offerId)
+} catch (e: ClientException) {
+    println("4xx response calling OfferResourceApi#sendOfferPriceChangedEmailUsingPUT")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling OfferResourceApi#sendOfferPriceChangedEmailUsingPUT")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **offerId** | **kotlin.Long**| offerId |
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+[apiKey](../README.md#apiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: */*
+
 <a name="updateOfferUsingPUT"></a>
 # **updateOfferUsingPUT**
 > Offer updateOfferUsingPUT(offer)
@@ -229,5 +320,52 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
+ - **Accept**: */*
+
+<a name="uploadFileUsingPOST1"></a>
+# **uploadFileUsingPOST1**
+> Offer uploadFileUsingPOST1(file, offerId)
+
+uploadFile
+
+### Example
+```kotlin
+// Import classes:
+//import io.swagger.client.infrastructure.*
+//import com.kodfarki.subscreasy.client.model.*
+
+val apiInstance = OfferResourceApi()
+val file : java.io.File = /path/to/file.txt // java.io.File | file
+val offerId : kotlin.Long = 789 // kotlin.Long | offerId
+try {
+    val result : Offer = apiInstance.uploadFileUsingPOST1(file, offerId)
+    println(result)
+} catch (e: ClientException) {
+    println("4xx response calling OfferResourceApi#uploadFileUsingPOST1")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling OfferResourceApi#uploadFileUsingPOST1")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **file** | **java.io.File**| file |
+ **offerId** | **kotlin.Long**| offerId |
+
+### Return type
+
+[**Offer**](Offer.md)
+
+### Authorization
+
+[apiKey](../README.md#apiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: multipart/form-data
  - **Accept**: */*
 

@@ -5,6 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **city** | **kotlin.String** |  |  [optional]
+**companyId** | **kotlin.Long** |  |  [optional]
 **country** | **kotlin.String** |  |  [optional]
 **id** | **kotlin.Long** |  |  [optional]
 **name** | **kotlin.String** |  |  [optional]

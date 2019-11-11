@@ -15,7 +15,7 @@ import com.kodfarki.subscreasy.client.model.CompanyProps
 
 import io.swagger.client.infrastructure.*
 
-class CompanyPropsResourceApi(basePath: kotlin.String = "https://localhost:8080") : ApiClient(basePath) {
+class CompanyPropsResourceApi(basePath: kotlin.String = "https://app.subscreasy.com") : ApiClient(basePath) {
 
     /**
     * createCompanyProps
@@ -167,6 +167,70 @@ class CompanyPropsResourceApi(basePath: kotlin.String = "https://localhost:8080"
 
         return when (response.responseType) {
             ResponseType.Success -> (response as Success<*>).data as CompanyProps
+            ResponseType.Informational -> TODO()
+            ResponseType.Redirection -> TODO()
+            ResponseType.ClientError -> throw ClientException((response as ClientError<*>).body as? String ?: "Client error")
+            ResponseType.ServerError -> throw ServerException((response as ServerError<*>).message ?: "Server error")
+            else -> throw kotlin.IllegalStateException("Undefined ResponseType.")
+        }
+    }
+
+    /**
+    * uploadCSS
+    * 
+    * @param file file 
+    * @return kotlin.Any
+    */
+    @Suppress("UNCHECKED_CAST")
+    fun uploadCSSUsingPOST(file: java.io.File) : kotlin.Any {
+        val localVariableBody: kotlin.Any? = mapOf("file" to "$file")
+        val localVariableQuery: MultiValueMap = mapOf()
+        val localVariableHeaders: kotlin.collections.Map<kotlin.String,kotlin.String> = mapOf("Content-Type" to "multipart/form-data")
+        val localVariableConfig = RequestConfig(
+            RequestMethod.POST,
+            "/api/company-props/uploadCSS",
+            query = localVariableQuery,
+            headers = localVariableHeaders
+        )
+        val response = request<kotlin.Any>(
+            localVariableConfig,
+            localVariableBody
+        )
+
+        return when (response.responseType) {
+            ResponseType.Success -> (response as Success<*>).data as kotlin.Any
+            ResponseType.Informational -> TODO()
+            ResponseType.Redirection -> TODO()
+            ResponseType.ClientError -> throw ClientException((response as ClientError<*>).body as? String ?: "Client error")
+            ResponseType.ServerError -> throw ServerException((response as ServerError<*>).message ?: "Server error")
+            else -> throw kotlin.IllegalStateException("Undefined ResponseType.")
+        }
+    }
+
+    /**
+    * uploadFile
+    * 
+    * @param file file 
+    * @return kotlin.Any
+    */
+    @Suppress("UNCHECKED_CAST")
+    fun uploadFileUsingPOST(file: java.io.File) : kotlin.Any {
+        val localVariableBody: kotlin.Any? = mapOf("file" to "$file")
+        val localVariableQuery: MultiValueMap = mapOf()
+        val localVariableHeaders: kotlin.collections.Map<kotlin.String,kotlin.String> = mapOf("Content-Type" to "multipart/form-data")
+        val localVariableConfig = RequestConfig(
+            RequestMethod.POST,
+            "/api/company-props/uploadFile",
+            query = localVariableQuery,
+            headers = localVariableHeaders
+        )
+        val response = request<kotlin.Any>(
+            localVariableConfig,
+            localVariableBody
+        )
+
+        return when (response.responseType) {
+            ResponseType.Success -> (response as Success<*>).data as kotlin.Any
             ResponseType.Informational -> TODO()
             ResponseType.Redirection -> TODO()
             ResponseType.ClientError -> throw ClientException((response as ClientError<*>).body as? String ?: "Client error")

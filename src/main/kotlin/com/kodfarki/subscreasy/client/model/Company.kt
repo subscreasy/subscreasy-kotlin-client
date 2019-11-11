@@ -18,11 +18,13 @@ import com.kodfarki.subscreasy.client.model.Address
  * @param address 
  * @param id 
  * @param name 
+ * @param siteName 
  */
 data class Company (
     val name: kotlin.String,
     val address: Address? = null,
-    val id: kotlin.Long? = null
+    val id: kotlin.Long? = null,
+    val siteName: kotlin.String? = null
 ) {
 
 }

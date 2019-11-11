@@ -15,6 +15,7 @@ package com.kodfarki.subscreasy.client.model
 /**
  * 
  * @param city 
+ * @param companyId 
  * @param country 
  * @param id 
  * @param name 
@@ -24,6 +25,7 @@ package com.kodfarki.subscreasy.client.model
  */
 data class Address (
     val city: kotlin.String? = null,
+    val companyId: kotlin.Long? = null,
     val country: kotlin.String? = null,
     val id: kotlin.Long? = null,
     val name: kotlin.String? = null,

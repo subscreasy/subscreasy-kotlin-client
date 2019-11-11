@@ -17,17 +17,21 @@ package com.kodfarki.subscreasy.client.model
  * @param amount 
  * @param id 
  * @param serviceId 
+ * @param serviceName 
+ * @param subscriberEmail 
+ * @param subscriberSecureId 
  * @param usageEndTime 
  * @param usageStartTime 
- * @param userId 
  */
 data class Deduction (
     val amount: kotlin.Long? = null,
     val id: kotlin.Long? = null,
     val serviceId: kotlin.Long? = null,
+    val serviceName: kotlin.String? = null,
+    val subscriberEmail: kotlin.String? = null,
+    val subscriberSecureId: kotlin.String? = null,
     val usageEndTime: java.time.LocalDateTime? = null,
-    val usageStartTime: java.time.LocalDateTime? = null,
-    val userId: kotlin.String? = null
+    val usageStartTime: java.time.LocalDateTime? = null
 ) {
 
 }

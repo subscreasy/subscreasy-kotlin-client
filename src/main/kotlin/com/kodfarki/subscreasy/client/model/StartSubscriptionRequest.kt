@@ -11,27 +11,65 @@
 */
 package com.kodfarki.subscreasy.client.model
 
+import com.kodfarki.subscreasy.client.model.Offer
 import com.kodfarki.subscreasy.client.model.PaymentCard
 import com.kodfarki.subscreasy.client.model.Subscriber
-import com.kodfarki.subscreasy.client.model.SubscriptionPlan
 
 /**
  * 
- * @param apiKey 
  * @param callbackUrl 
+ * @param companySiteName 
  * @param couponCode 
+ * @param editable 
  * @param offer 
  * @param paymentCard 
+ * @param paymentType 
+ * @param price 
+ * @param privacyPolicyUrl 
+ * @param productType 
  * @param subscriber 
+ * @param subscriberFromDb 
  */
 data class StartSubscriptionRequest (
-    val apiKey: kotlin.String? = null,
     val callbackUrl: kotlin.String? = null,
+    val companySiteName: kotlin.String? = null,
     val couponCode: kotlin.String? = null,
-    val offer: SubscriptionPlan? = null,
+    val editable: kotlin.Boolean? = null,
+    val offer: Offer? = null,
     val paymentCard: PaymentCard? = null,
-    val subscriber: Subscriber? = null
+    val paymentType: StartSubscriptionRequest.PaymentType? = null,
+    val price: java.math.BigDecimal? = null,
+    val privacyPolicyUrl: kotlin.Boolean? = null,
+    val productType: StartSubscriptionRequest.ProductType? = null,
+    val subscriber: Subscriber? = null,
+    val subscriberFromDb: Subscriber? = null
 ) {
+
+    /**
+    * 
+    * Values: oFFLINE,cC,mOBILE
+    */
+    enum class PaymentType(val value: kotlin.Any){
+    
+        oFFLINE("OFFLINE"),
+    
+        cC("CC"),
+    
+        mOBILE("MOBILE");
+    
+    }
+
+    /**
+    * 
+    * Values: pHYSICAL,sERVICE
+    */
+    enum class ProductType(val value: kotlin.Any){
+    
+        pHYSICAL("PHYSICAL"),
+    
+        sERVICE("SERVICE");
+    
+    }
 
 }
 

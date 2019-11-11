@@ -5,6 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **cancellationType** | [**inline**](#CancellationTypeEnum) |  |  [optional]
+**subscriberId** | **kotlin.Long** |  |  [optional]
 **subscriptionId** | **kotlin.Long** |  |  [optional]
 
 

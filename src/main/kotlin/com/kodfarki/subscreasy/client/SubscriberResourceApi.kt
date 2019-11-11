@@ -15,7 +15,7 @@ import com.kodfarki.subscreasy.client.model.Subscriber
 
 import io.swagger.client.infrastructure.*
 
-class SubscriberResourceApi(basePath: kotlin.String = "https://localhost:8080") : ApiClient(basePath) {
+class SubscriberResourceApi(basePath: kotlin.String = "https://app.subscreasy.com") : ApiClient(basePath) {
 
     /**
     * createSubscriber
@@ -81,14 +81,48 @@ class SubscriberResourceApi(basePath: kotlin.String = "https://localhost:8080") 
     }
 
     /**
-    * getAllSubscribers
+    * findAllSubscribers
     * 
     * @return kotlin.Array<Subscriber>
     */
     @Suppress("UNCHECKED_CAST")
-    fun getAllSubscribersUsingGET() : kotlin.Array<Subscriber> {
+    fun findAllSubscribersUsingGET() : kotlin.Array<Subscriber> {
         val localVariableBody: kotlin.Any? = null
         val localVariableQuery: MultiValueMap = mapOf()
+        val localVariableHeaders: kotlin.collections.Map<kotlin.String,kotlin.String> = mapOf()
+        val localVariableConfig = RequestConfig(
+            RequestMethod.GET,
+            "/api/subscribers/find-all",
+            query = localVariableQuery,
+            headers = localVariableHeaders
+        )
+        val response = request<kotlin.Array<Subscriber>>(
+            localVariableConfig,
+            localVariableBody
+        )
+
+        return when (response.responseType) {
+            ResponseType.Success -> (response as Success<*>).data as kotlin.Array<Subscriber>
+            ResponseType.Informational -> TODO()
+            ResponseType.Redirection -> TODO()
+            ResponseType.ClientError -> throw ClientException((response as ClientError<*>).body as? String ?: "Client error")
+            ResponseType.ServerError -> throw ServerException((response as ServerError<*>).message ?: "Server error")
+            else -> throw kotlin.IllegalStateException("Undefined ResponseType.")
+        }
+    }
+
+    /**
+    * getAllSubscribers
+    * 
+    * @param page Page number of the requested page (optional)
+    * @param size Size of a page (optional)
+    * @param sort Sorting criteria in the format: property(,asc|desc). Default sort order is ascending. Multiple sort criteria are supported. (optional)
+    * @return kotlin.Array<Subscriber>
+    */
+    @Suppress("UNCHECKED_CAST")
+    fun getAllSubscribersUsingGET(page: kotlin.Int, size: kotlin.Int, sort: kotlin.Array<kotlin.String>) : kotlin.Array<Subscriber> {
+        val localVariableBody: kotlin.Any? = null
+        val localVariableQuery: MultiValueMap = mapOf("page" to listOf("$page"), "size" to listOf("$size"), "sort" to toMultiValue(sort.toList(), "multi"))
         val localVariableHeaders: kotlin.collections.Map<kotlin.String,kotlin.String> = mapOf()
         val localVariableConfig = RequestConfig(
             RequestMethod.GET,
@@ -115,12 +149,15 @@ class SubscriberResourceApi(basePath: kotlin.String = "https://localhost:8080") 
     * getSubscriberByEmail
     * 
     * @param email email 
+    * @param page Page number of the requested page (optional)
+    * @param size Size of a page (optional)
+    * @param sort Sorting criteria in the format: property(,asc|desc). Default sort order is ascending. Multiple sort criteria are supported. (optional)
     * @return kotlin.Array<Subscriber>
     */
     @Suppress("UNCHECKED_CAST")
-    fun getSubscriberByEmailUsingGET(email: kotlin.String) : kotlin.Array<Subscriber> {
+    fun getSubscriberByEmailUsingGET(email: kotlin.String, page: kotlin.Int, size: kotlin.Int, sort: kotlin.Array<kotlin.String>) : kotlin.Array<Subscriber> {
         val localVariableBody: kotlin.Any? = null
-        val localVariableQuery: MultiValueMap = mapOf()
+        val localVariableQuery: MultiValueMap = mapOf("page" to listOf("$page"), "size" to listOf("$size"), "sort" to toMultiValue(sort.toList(), "multi"))
         val localVariableHeaders: kotlin.collections.Map<kotlin.String,kotlin.String> = mapOf()
         val localVariableConfig = RequestConfig(
             RequestMethod.GET,
@@ -147,12 +184,15 @@ class SubscriberResourceApi(basePath: kotlin.String = "https://localhost:8080") 
     * getSubscriberByName
     * 
     * @param name name 
+    * @param page Page number of the requested page (optional)
+    * @param size Size of a page (optional)
+    * @param sort Sorting criteria in the format: property(,asc|desc). Default sort order is ascending. Multiple sort criteria are supported. (optional)
     * @return kotlin.Array<Subscriber>
     */
     @Suppress("UNCHECKED_CAST")
-    fun getSubscriberByNameUsingGET(name: kotlin.String) : kotlin.Array<Subscriber> {
+    fun getSubscriberByNameUsingGET(name: kotlin.String, page: kotlin.Int, size: kotlin.Int, sort: kotlin.Array<kotlin.String>) : kotlin.Array<Subscriber> {
         val localVariableBody: kotlin.Any? = null
-        val localVariableQuery: MultiValueMap = mapOf()
+        val localVariableQuery: MultiValueMap = mapOf("page" to listOf("$page"), "size" to listOf("$size"), "sort" to toMultiValue(sort.toList(), "multi"))
         val localVariableHeaders: kotlin.collections.Map<kotlin.String,kotlin.String> = mapOf()
         val localVariableConfig = RequestConfig(
             RequestMethod.GET,
@@ -167,6 +207,38 @@ class SubscriberResourceApi(basePath: kotlin.String = "https://localhost:8080") 
 
         return when (response.responseType) {
             ResponseType.Success -> (response as Success<*>).data as kotlin.Array<Subscriber>
+            ResponseType.Informational -> TODO()
+            ResponseType.Redirection -> TODO()
+            ResponseType.ClientError -> throw ClientException((response as ClientError<*>).body as? String ?: "Client error")
+            ResponseType.ServerError -> throw ServerException((response as ServerError<*>).message ?: "Server error")
+            else -> throw kotlin.IllegalStateException("Undefined ResponseType.")
+        }
+    }
+
+    /**
+    * getSubscriberBySecureId
+    * 
+    * @param secureId secureId 
+    * @return Subscriber
+    */
+    @Suppress("UNCHECKED_CAST")
+    fun getSubscriberBySecureIdUsingGET(secureId: kotlin.String) : Subscriber {
+        val localVariableBody: kotlin.Any? = null
+        val localVariableQuery: MultiValueMap = mapOf()
+        val localVariableHeaders: kotlin.collections.Map<kotlin.String,kotlin.String> = mapOf()
+        val localVariableConfig = RequestConfig(
+            RequestMethod.GET,
+            "/api/subscribers/secureId/{secureId}".replace("{"+"secureId"+"}", "$secureId"),
+            query = localVariableQuery,
+            headers = localVariableHeaders
+        )
+        val response = request<Subscriber>(
+            localVariableConfig,
+            localVariableBody
+        )
+
+        return when (response.responseType) {
+            ResponseType.Success -> (response as Success<*>).data as Subscriber
             ResponseType.Informational -> TODO()
             ResponseType.Redirection -> TODO()
             ResponseType.ClientError -> throw ClientException((response as ClientError<*>).body as? String ?: "Client error")

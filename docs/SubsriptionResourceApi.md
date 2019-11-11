@@ -193,7 +193,7 @@ Name | Type | Description  | Notes
 
 <a name="startSubscriptionUsingPOST"></a>
 # **startSubscriptionUsingPOST**
-> SubscriptionCreateResult startSubscriptionUsingPOST(request)
+> StartSubscriptionResult startSubscriptionUsingPOST(request)
 
 startSubscription
 
@@ -206,7 +206,7 @@ startSubscription
 val apiInstance = SubsriptionResourceApi()
 val request : StartSubscriptionRequest =  // StartSubscriptionRequest | request
 try {
-    val result : SubscriptionCreateResult = apiInstance.startSubscriptionUsingPOST(request)
+    val result : StartSubscriptionResult = apiInstance.startSubscriptionUsingPOST(request)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling SubsriptionResourceApi#startSubscriptionUsingPOST")
@@ -225,7 +225,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**SubscriptionCreateResult**](SubscriptionCreateResult.md)
+[**StartSubscriptionResult**](StartSubscriptionResult.md)
 
 ### Authorization
 

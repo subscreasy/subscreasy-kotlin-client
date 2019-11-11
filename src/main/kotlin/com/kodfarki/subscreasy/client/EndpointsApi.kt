@@ -23,7 +23,7 @@ import com.kodfarki.subscreasy.client.model.ServiceOfferingResult
 
 import io.swagger.client.infrastructure.*
 
-class EndpointsApi(basePath: kotlin.String = "https://localhost:8080") : ApiClient(basePath) {
+class EndpointsApi(basePath: kotlin.String = "https://app.subscreasy.com") : ApiClient(basePath) {
 
     /**
     * authorize

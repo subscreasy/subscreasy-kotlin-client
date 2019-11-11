@@ -15,10 +15,12 @@ package com.kodfarki.subscreasy.client.model
 /**
  * 
  * @param cancellationType 
+ * @param subscriberId 
  * @param subscriptionId 
  */
 data class Cancellation (
     val cancellationType: Cancellation.CancellationType? = null,
+    val subscriberId: kotlin.Long? = null,
     val subscriptionId: kotlin.Long? = null
 ) {
 

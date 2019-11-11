@@ -85,7 +85,7 @@ data class ServiceInstance (
 
     /**
     * 
-    * Values: nEW,aCTIVE,sUSPENDED,fINISHED,cANCELLED
+    * Values: nEW,aCTIVE,sUSPENDED,fINISHED,cANCELLED,iNTRIAL,pAYMENTDUE
     */
     enum class Status(val value: kotlin.Any){
     
@@ -97,7 +97,11 @@ data class ServiceInstance (
     
         fINISHED("FINISHED"),
     
-        cANCELLED("CANCELLED");
+        cANCELLED("CANCELLED"),
+    
+        iNTRIAL("IN_TRIAL"),
+    
+        pAYMENTDUE("PAYMENT_DUE");
     
     }
 

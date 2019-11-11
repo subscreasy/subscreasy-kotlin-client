@@ -29,11 +29,11 @@ import com.kodfarki.subscreasy.client.model.Service
  * @param unitName 
  */
 data class ServiceOffering (
-    val offer: Offer,
     val quotaAmount: java.math.BigDecimal,
     val company: Company? = null,
     val description: kotlin.String? = null,
     val id: kotlin.Long? = null,
+    val offer: Offer? = null,
     val overUsagePrice: java.math.BigDecimal? = null,
     val overUsageQuota: java.math.BigDecimal? = null,
     val price: java.math.BigDecimal? = null,

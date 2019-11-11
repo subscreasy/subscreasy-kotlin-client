@@ -31,6 +31,7 @@ import com.kodfarki.subscreasy.client.model.Company
  * @param login 
  * @param password 
  * @param resetDate 
+ * @param siteName 
  */
 data class ManagedUserVM (
     val login: kotlin.String,
@@ -48,7 +49,8 @@ data class ManagedUserVM (
     val lastModifiedDate: java.time.LocalDateTime? = null,
     val lastName: kotlin.String? = null,
     val password: kotlin.String? = null,
-    val resetDate: kotlin.String? = null
+    val resetDate: kotlin.String? = null,
+    val siteName: kotlin.String? = null
 ) {
 
 }

@@ -19,11 +19,15 @@ package com.kodfarki.subscreasy.client.model
  * @param cardAssociation 
  * @param cardBankCode 
  * @param cardBankName 
+ * @param cardCVV 
  * @param cardFamily 
  * @param cardToken 
  * @param cardUserKey 
  * @param cartType 
+ * @param companyId 
+ * @param expireDate 
  * @param id 
+ * @param subscriberId 
  */
 data class SavedCard (
     val binNumber: kotlin.String? = null,
@@ -31,11 +35,15 @@ data class SavedCard (
     val cardAssociation: kotlin.String? = null,
     val cardBankCode: kotlin.Long? = null,
     val cardBankName: kotlin.String? = null,
+    val cardCVV: kotlin.String? = null,
     val cardFamily: kotlin.String? = null,
     val cardToken: kotlin.String? = null,
     val cardUserKey: kotlin.String? = null,
     val cartType: kotlin.String? = null,
-    val id: kotlin.Long? = null
+    val companyId: kotlin.Long? = null,
+    val expireDate: java.time.LocalDateTime? = null,
+    val id: kotlin.Long? = null,
+    val subscriberId: kotlin.Long? = null
 ) {
 
 }

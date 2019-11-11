@@ -42,7 +42,7 @@ serviceType | ONOFF, SEAT_BASED, USAGE_BASED
 ## Enum: status
 Name | Value
 ---- | -----
-status | NEW, ACTIVE, SUSPENDED, FINISHED, CANCELLED
+status | NEW, ACTIVE, SUSPENDED, FINISHED, CANCELLED, IN_TRIAL, PAYMENT_DUE
 
 
 <a name="TypeEnum"></a>

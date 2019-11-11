@@ -16,6 +16,7 @@ import com.kodfarki.subscreasy.client.model.Coupon
 import com.kodfarki.subscreasy.client.model.Offer
 import com.kodfarki.subscreasy.client.model.SavedCard
 import com.kodfarki.subscreasy.client.model.ServiceInstance
+import com.kodfarki.subscreasy.client.model.Subscriber
 
 /**
  * 
@@ -25,13 +26,17 @@ import com.kodfarki.subscreasy.client.model.ServiceInstance
  * @param company 
  * @param endDate 
  * @param id 
- * @param nextChargingDate 
+ * @param lastEvent 
  * @param offer 
+ * @param paymentMethod 
  * @param services 
  * @param startDate 
  * @param status 
- * @param subscriberId 
- * @param version 
+ * @param subscriber 
+ * @param subscriberSecureId 
+ * @param termEndDate 
+ * @param termStartDate 
+ * @param trialEndDate 
  */
 data class Subsription (
     val company: Company,
@@ -41,17 +46,67 @@ data class Subsription (
     val card: SavedCard? = null,
     val endDate: java.time.LocalDateTime? = null,
     val id: kotlin.Long? = null,
-    val nextChargingDate: java.time.LocalDateTime? = null,
+    val lastEvent: Subsription.LastEvent? = null,
+    val paymentMethod: Subsription.PaymentMethod? = null,
     val services: kotlin.Array<ServiceInstance>? = null,
     val startDate: java.time.LocalDateTime? = null,
     val status: Subsription.Status? = null,
-    val subscriberId: kotlin.String? = null,
-    val version: kotlin.Long? = null
+    val subscriber: Subscriber? = null,
+    val subscriberSecureId: kotlin.String? = null,
+    val termEndDate: java.time.LocalDateTime? = null,
+    val termStartDate: java.time.LocalDateTime? = null,
+    val trialEndDate: java.time.LocalDateTime? = null
 ) {
 
     /**
     * 
-    * Values: nEW,aCTIVE,sUSPENDED,fINISHED,cANCELLED
+    * Values: sTARTED,rENEWED,rENEWALFAILED,fINISHED,cANCELLED,sUBSCRIBERCREATED,sUBSCRIBERUPDATED,tRIALENDING,pAYMENTUPDATED,iMMEDIATECANCELLATIONREQUESTED,eNDOFPERIODCANCELLATIONREQUESTED,pRICEUPDATED
+    */
+    enum class LastEvent(val value: kotlin.Any){
+    
+        sTARTED("STARTED"),
+    
+        rENEWED("RENEWED"),
+    
+        rENEWALFAILED("RENEWAL_FAILED"),
+    
+        fINISHED("FINISHED"),
+    
+        cANCELLED("CANCELLED"),
+    
+        sUBSCRIBERCREATED("SUBSCRIBER_CREATED"),
+    
+        sUBSCRIBERUPDATED("SUBSCRIBER_UPDATED"),
+    
+        tRIALENDING("TRIAL_ENDING"),
+    
+        pAYMENTUPDATED("PAYMENT_UPDATED"),
+    
+        iMMEDIATECANCELLATIONREQUESTED("IMMEDIATE_CANCELLATION_REQUESTED"),
+    
+        eNDOFPERIODCANCELLATIONREQUESTED("ENDOFPERIOD_CANCELLATION_REQUESTED"),
+    
+        pRICEUPDATED("PRICE_UPDATED");
+    
+    }
+
+    /**
+    * 
+    * Values: oFFLINE,cC,mOBILE
+    */
+    enum class PaymentMethod(val value: kotlin.Any){
+    
+        oFFLINE("OFFLINE"),
+    
+        cC("CC"),
+    
+        mOBILE("MOBILE");
+    
+    }
+
+    /**
+    * 
+    * Values: nEW,aCTIVE,sUSPENDED,fINISHED,cANCELLED,iNTRIAL,pAYMENTDUE
     */
     enum class Status(val value: kotlin.Any){
     
@@ -63,7 +118,11 @@ data class Subsription (
     
         fINISHED("FINISHED"),
     
-        cANCELLED("CANCELLED");
+        cANCELLED("CANCELLED"),
+    
+        iNTRIAL("IN_TRIAL"),
+    
+        pAYMENTDUE("PAYMENT_DUE");
     
     }
 

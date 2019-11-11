@@ -15,7 +15,7 @@ import com.kodfarki.subscreasy.client.model.ChargingLog
 
 import io.swagger.client.infrastructure.*
 
-class ChargingLogResourceApi(basePath: kotlin.String = "https://localhost:8080") : ApiClient(basePath) {
+class ChargingLogResourceApi(basePath: kotlin.String = "https://app.subscreasy.com") : ApiClient(basePath) {
 
     /**
     * createChargingLog
@@ -138,6 +138,76 @@ class ChargingLogResourceApi(basePath: kotlin.String = "https://localhost:8080")
 
         return when (response.responseType) {
             ResponseType.Success -> (response as Success<*>).data as ChargingLog
+            ResponseType.Informational -> TODO()
+            ResponseType.Redirection -> TODO()
+            ResponseType.ClientError -> throw ClientException((response as ClientError<*>).body as? String ?: "Client error")
+            ResponseType.ServerError -> throw ServerException((response as ServerError<*>).message ?: "Server error")
+            else -> throw kotlin.IllegalStateException("Undefined ResponseType.")
+        }
+    }
+
+    /**
+    * getChargingLogsByStatus
+    * 
+    * @param status status 
+    * @param page Page number of the requested page (optional)
+    * @param size Size of a page (optional)
+    * @param sort Sorting criteria in the format: property(,asc|desc). Default sort order is ascending. Multiple sort criteria are supported. (optional)
+    * @return kotlin.Array<ChargingLog>
+    */
+    @Suppress("UNCHECKED_CAST")
+    fun getChargingLogsByStatusUsingGET(status: kotlin.String, page: kotlin.Int, size: kotlin.Int, sort: kotlin.Array<kotlin.String>) : kotlin.Array<ChargingLog> {
+        val localVariableBody: kotlin.Any? = null
+        val localVariableQuery: MultiValueMap = mapOf("page" to listOf("$page"), "size" to listOf("$size"), "sort" to toMultiValue(sort.toList(), "multi"))
+        val localVariableHeaders: kotlin.collections.Map<kotlin.String,kotlin.String> = mapOf()
+        val localVariableConfig = RequestConfig(
+            RequestMethod.GET,
+            "/api/charging-logs/status/{status}".replace("{"+"status"+"}", "$status"),
+            query = localVariableQuery,
+            headers = localVariableHeaders
+        )
+        val response = request<kotlin.Array<ChargingLog>>(
+            localVariableConfig,
+            localVariableBody
+        )
+
+        return when (response.responseType) {
+            ResponseType.Success -> (response as Success<*>).data as kotlin.Array<ChargingLog>
+            ResponseType.Informational -> TODO()
+            ResponseType.Redirection -> TODO()
+            ResponseType.ClientError -> throw ClientException((response as ClientError<*>).body as? String ?: "Client error")
+            ResponseType.ServerError -> throw ServerException((response as ServerError<*>).message ?: "Server error")
+            else -> throw kotlin.IllegalStateException("Undefined ResponseType.")
+        }
+    }
+
+    /**
+    * getPaymentsByMerchantSubscriberId
+    * 
+    * @param merchantSubscriberId merchantSubscriberId 
+    * @param page Page number of the requested page (optional)
+    * @param size Size of a page (optional)
+    * @param sort Sorting criteria in the format: property(,asc|desc). Default sort order is ascending. Multiple sort criteria are supported. (optional)
+    * @return kotlin.Array<ChargingLog>
+    */
+    @Suppress("UNCHECKED_CAST")
+    fun getPaymentsByMerchantSubscriberIdUsingGET(merchantSubscriberId: kotlin.String, page: kotlin.Int, size: kotlin.Int, sort: kotlin.Array<kotlin.String>) : kotlin.Array<ChargingLog> {
+        val localVariableBody: kotlin.Any? = null
+        val localVariableQuery: MultiValueMap = mapOf("page" to listOf("$page"), "size" to listOf("$size"), "sort" to toMultiValue(sort.toList(), "multi"))
+        val localVariableHeaders: kotlin.collections.Map<kotlin.String,kotlin.String> = mapOf()
+        val localVariableConfig = RequestConfig(
+            RequestMethod.GET,
+            "/api/charging-logs/subscriber/m/{merchantSubscriberId}".replace("{"+"merchantSubscriberId"+"}", "$merchantSubscriberId"),
+            query = localVariableQuery,
+            headers = localVariableHeaders
+        )
+        val response = request<kotlin.Array<ChargingLog>>(
+            localVariableConfig,
+            localVariableBody
+        )
+
+        return when (response.responseType) {
+            ResponseType.Success -> (response as Success<*>).data as kotlin.Array<ChargingLog>
             ResponseType.Informational -> TODO()
             ResponseType.Redirection -> TODO()
             ResponseType.ClientError -> throw ClientException((response as ClientError<*>).body as? String ?: "Client error")

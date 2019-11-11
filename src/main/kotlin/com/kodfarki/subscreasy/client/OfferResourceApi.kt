@@ -15,7 +15,38 @@ import com.kodfarki.subscreasy.client.model.Offer
 
 import io.swagger.client.infrastructure.*
 
-class OfferResourceApi(basePath: kotlin.String = "https://localhost:8080") : ApiClient(basePath) {
+class OfferResourceApi(basePath: kotlin.String = "https://app.subscreasy.com") : ApiClient(basePath) {
+
+    /**
+    * archiveOffer
+    * 
+    * @param id id 
+    * @return void
+    */
+    fun archiveOfferUsingPUT(id: kotlin.Long) : Unit {
+        val localVariableBody: kotlin.Any? = null
+        val localVariableQuery: MultiValueMap = mapOf()
+        val localVariableHeaders: kotlin.collections.Map<kotlin.String,kotlin.String> = mapOf()
+        val localVariableConfig = RequestConfig(
+            RequestMethod.PUT,
+            "/api/offers/archive/{id}".replace("{"+"id"+"}", "$id"),
+            query = localVariableQuery,
+            headers = localVariableHeaders
+        )
+        val response = request<Any?>(
+            localVariableConfig,
+            localVariableBody
+        )
+
+        return when (response.responseType) {
+            ResponseType.Success -> Unit
+            ResponseType.Informational -> TODO()
+            ResponseType.Redirection -> TODO()
+            ResponseType.ClientError -> throw ClientException((response as ClientError<*>).body as? String ?: "Client error")
+            ResponseType.ServerError -> throw ServerException((response as ServerError<*>).message ?: "Server error")
+            else -> throw kotlin.IllegalStateException("Undefined ResponseType.")
+        }
+    }
 
     /**
     * createOffer
@@ -144,6 +175,37 @@ class OfferResourceApi(basePath: kotlin.String = "https://localhost:8080") : Api
     }
 
     /**
+    * sendOfferPriceChangedEmail
+    * 
+    * @param offerId offerId 
+    * @return void
+    */
+    fun sendOfferPriceChangedEmailUsingPUT(offerId: kotlin.Long) : Unit {
+        val localVariableBody: kotlin.Any? = null
+        val localVariableQuery: MultiValueMap = mapOf()
+        val localVariableHeaders: kotlin.collections.Map<kotlin.String,kotlin.String> = mapOf()
+        val localVariableConfig = RequestConfig(
+            RequestMethod.PUT,
+            "/api/offers/sendOfferPriceChangedEmail/{offerId}".replace("{"+"offerId"+"}", "$offerId"),
+            query = localVariableQuery,
+            headers = localVariableHeaders
+        )
+        val response = request<Any?>(
+            localVariableConfig,
+            localVariableBody
+        )
+
+        return when (response.responseType) {
+            ResponseType.Success -> Unit
+            ResponseType.Informational -> TODO()
+            ResponseType.Redirection -> TODO()
+            ResponseType.ClientError -> throw ClientException((response as ClientError<*>).body as? String ?: "Client error")
+            ResponseType.ServerError -> throw ServerException((response as ServerError<*>).message ?: "Server error")
+            else -> throw kotlin.IllegalStateException("Undefined ResponseType.")
+        }
+    }
+
+    /**
     * updateOffer
     * 
     * @param offer offer 
@@ -157,6 +219,39 @@ class OfferResourceApi(basePath: kotlin.String = "https://localhost:8080") : Api
         val localVariableConfig = RequestConfig(
             RequestMethod.PUT,
             "/api/offers",
+            query = localVariableQuery,
+            headers = localVariableHeaders
+        )
+        val response = request<Offer>(
+            localVariableConfig,
+            localVariableBody
+        )
+
+        return when (response.responseType) {
+            ResponseType.Success -> (response as Success<*>).data as Offer
+            ResponseType.Informational -> TODO()
+            ResponseType.Redirection -> TODO()
+            ResponseType.ClientError -> throw ClientException((response as ClientError<*>).body as? String ?: "Client error")
+            ResponseType.ServerError -> throw ServerException((response as ServerError<*>).message ?: "Server error")
+            else -> throw kotlin.IllegalStateException("Undefined ResponseType.")
+        }
+    }
+
+    /**
+    * uploadFile
+    * 
+    * @param file file 
+    * @param offerId offerId 
+    * @return Offer
+    */
+    @Suppress("UNCHECKED_CAST")
+    fun uploadFileUsingPOST1(file: java.io.File, offerId: kotlin.Long) : Offer {
+        val localVariableBody: kotlin.Any? = mapOf("file" to "$file")
+        val localVariableQuery: MultiValueMap = mapOf()
+        val localVariableHeaders: kotlin.collections.Map<kotlin.String,kotlin.String> = mapOf("Content-Type" to "multipart/form-data")
+        val localVariableConfig = RequestConfig(
+            RequestMethod.POST,
+            "/api/offers/uploadFile/{offerId}".replace("{"+"offerId"+"}", "$offerId"),
             query = localVariableQuery,
             headers = localVariableHeaders
         )

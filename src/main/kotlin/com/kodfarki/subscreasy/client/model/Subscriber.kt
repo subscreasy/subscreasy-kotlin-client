@@ -11,49 +11,43 @@
 */
 package com.kodfarki.subscreasy.client.model
 
+import com.kodfarki.subscreasy.client.model.Address
+import com.kodfarki.subscreasy.client.model.Company
 
 /**
  * 
- * @param address 
- * @param city 
- * @param country 
+ * @param billingAddress 
+ * @param company 
+ * @param createDate 
  * @param email 
- * @param gsmNumber 
- * @param identityNumber 
- * @param ip 
- * @param lastLoginDate 
+ * @param id 
+ * @param identificationNo 
+ * @param merchantSubscriberId 
  * @param name 
- * @param registrationDate 
+ * @param phoneNumber 
  * @param secureId 
  * @param shippingAddress 
- * @param shippingCity 
- * @param shippingCountry 
- * @param shippingName 
- * @param shippingZipCode 
  * @param surname 
- * @param useBillingAddressForShipping 
- * @param zipCode 
+ * @param taxAdministration 
+ * @param taxNumber 
+ * @param worksFor 
  */
 data class Subscriber (
-    val address: kotlin.String? = null,
-    val city: kotlin.String? = null,
-    val country: kotlin.String? = null,
+    val billingAddress: Address? = null,
+    val company: Company? = null,
+    val createDate: java.time.LocalDateTime? = null,
     val email: kotlin.String? = null,
-    val gsmNumber: kotlin.String? = null,
-    val identityNumber: kotlin.String? = null,
-    val ip: kotlin.String? = null,
-    val lastLoginDate: kotlin.String? = null,
+    val id: kotlin.Long? = null,
+    val identificationNo: kotlin.String? = null,
+    val merchantSubscriberId: kotlin.String? = null,
     val name: kotlin.String? = null,
-    val registrationDate: kotlin.String? = null,
+    val phoneNumber: kotlin.String? = null,
     val secureId: kotlin.String? = null,
-    val shippingAddress: kotlin.String? = null,
-    val shippingCity: kotlin.String? = null,
-    val shippingCountry: kotlin.String? = null,
-    val shippingName: kotlin.String? = null,
-    val shippingZipCode: kotlin.String? = null,
+    val shippingAddress: Address? = null,
     val surname: kotlin.String? = null,
-    val useBillingAddressForShipping: kotlin.Boolean? = null,
-    val zipCode: kotlin.String? = null
+    val taxAdministration: kotlin.String? = null,
+    val taxNumber: kotlin.String? = null,
+    val worksFor: kotlin.String? = null
 ) {
 
 }

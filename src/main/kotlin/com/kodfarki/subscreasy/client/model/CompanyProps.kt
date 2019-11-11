@@ -15,37 +15,105 @@ import com.kodfarki.subscreasy.client.model.Company
 
 /**
  * 
- * @param apiKey 
+ * @param billingDate 
+ * @param billingInformationMandatory 
+ * @param billingThresholdDays 
+ * @param branding 
  * @param callbackUrl 
  * @param company 
+ * @param contactEmail 
+ * @param domainName 
+ * @param hostedPageCSSPath 
  * @param id 
+ * @param logoPath 
+ * @param mobilExpressApiPassword 
+ * @param mobilExpressMerchantKey 
+ * @param mobilExpressPosid 
+ * @param mobilePaymentGateway 
+ * @param notifyNewSubscription 
+ * @param notifyRenewal 
+ * @param notifySubscriptionCancellation 
+ * @param paymentGateway 
  * @param paymentGatewayApiKey 
  * @param paymentGatewaySecurityKey 
- * @param paymentMethod 
- * @param secureKey 
+ * @param paytrDirectApiEnabled 
+ * @param paytrMerchantId 
+ * @param payuMerchantKeyRenewals 
+ * @param payuSecretKeyRenewals 
+ * @param privacyPolicyUrl 
+ * @param sendDailyReports 
+ * @param subscreasyApiKey 
+ * @param subscreasySecureKey 
+ * @param wirecardErrorMessage 
+ * @param wirecardPin 
+ * @param wirecardSuccessfulMessage 
+ * @param wirecardTurkcellServisId 
+ * @param wirecardUserCode 
  */
 data class CompanyProps (
-    val apiKey: kotlin.String? = null,
+    val billingInformationMandatory: kotlin.Boolean,
+    val branding: kotlin.Boolean,
+    val domainName: kotlin.String,
+    val notifyNewSubscription: kotlin.Boolean,
+    val notifyRenewal: kotlin.Boolean,
+    val notifySubscriptionCancellation: kotlin.Boolean,
+    val billingDate: kotlin.Int? = null,
+    val billingThresholdDays: kotlin.Int? = null,
     val callbackUrl: kotlin.String? = null,
     val company: Company? = null,
+    val contactEmail: kotlin.String? = null,
+    val hostedPageCSSPath: kotlin.String? = null,
     val id: kotlin.Long? = null,
+    val logoPath: kotlin.String? = null,
+    val mobilExpressApiPassword: kotlin.String? = null,
+    val mobilExpressMerchantKey: kotlin.String? = null,
+    val mobilExpressPosid: kotlin.Int? = null,
+    val mobilePaymentGateway: CompanyProps.MobilePaymentGateway? = null,
+    val paymentGateway: CompanyProps.PaymentGateway? = null,
     val paymentGatewayApiKey: kotlin.String? = null,
     val paymentGatewaySecurityKey: kotlin.String? = null,
-    val paymentMethod: CompanyProps.PaymentMethod? = null,
-    val secureKey: kotlin.String? = null
+    val paytrDirectApiEnabled: kotlin.Boolean? = null,
+    val paytrMerchantId: kotlin.Int? = null,
+    val payuMerchantKeyRenewals: kotlin.String? = null,
+    val payuSecretKeyRenewals: kotlin.String? = null,
+    val privacyPolicyUrl: kotlin.String? = null,
+    val sendDailyReports: kotlin.String? = null,
+    val subscreasyApiKey: kotlin.String? = null,
+    val subscreasySecureKey: kotlin.String? = null,
+    val wirecardErrorMessage: kotlin.String? = null,
+    val wirecardPin: kotlin.String? = null,
+    val wirecardSuccessfulMessage: kotlin.String? = null,
+    val wirecardTurkcellServisId: kotlin.String? = null,
+    val wirecardUserCode: kotlin.String? = null
 ) {
 
     /**
     * 
-    * Values: oFFLINE,iYZICO,pAYU
+    * Values: dISABLED,wIRECARD
     */
-    enum class PaymentMethod(val value: kotlin.Any){
+    enum class MobilePaymentGateway(val value: kotlin.Any){
+    
+        dISABLED("DISABLED"),
+    
+        wIRECARD("WIRECARD");
+    
+    }
+
+    /**
+    * 
+    * Values: oFFLINE,iYZICO,pAYU,pAYTR,mOBILEXPRESS
+    */
+    enum class PaymentGateway(val value: kotlin.Any){
     
         oFFLINE("OFFLINE"),
     
         iYZICO("IYZICO"),
     
-        pAYU("PAYU");
+        pAYU("PAYU"),
+    
+        pAYTR("PAYTR"),
+    
+        mOBILEXPRESS("MOBILEXPRESS");
     
     }
 

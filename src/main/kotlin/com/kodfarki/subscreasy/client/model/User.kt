@@ -19,6 +19,7 @@ import com.kodfarki.subscreasy.client.model.Company
  * @param activated 
  * @param authorities 
  * @param company 
+ * @param companyOwner 
  * @param createdDate 
  * @param email 
  * @param firstName 
@@ -28,10 +29,12 @@ import com.kodfarki.subscreasy.client.model.Company
  * @param lastModifiedDate 
  * @param lastName 
  * @param login 
+ * @param loginCount 
  * @param resetDate 
  */
 data class User (
     val activated: kotlin.Boolean,
+    val companyOwner: kotlin.Boolean,
     val login: kotlin.String,
     val authorities: kotlin.Array<Authority>? = null,
     val company: Company? = null,
@@ -43,6 +46,7 @@ data class User (
     val langKey: kotlin.String? = null,
     val lastModifiedDate: java.time.LocalDateTime? = null,
     val lastName: kotlin.String? = null,
+    val loginCount: kotlin.Long? = null,
     val resetDate: java.time.LocalDateTime? = null
 ) {
 

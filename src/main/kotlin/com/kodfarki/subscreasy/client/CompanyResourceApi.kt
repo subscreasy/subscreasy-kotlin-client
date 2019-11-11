@@ -15,7 +15,7 @@ import com.kodfarki.subscreasy.client.model.Company
 
 import io.swagger.client.infrastructure.*
 
-class CompanyResourceApi(basePath: kotlin.String = "https://localhost:8080") : ApiClient(basePath) {
+class CompanyResourceApi(basePath: kotlin.String = "https://app.subscreasy.com") : ApiClient(basePath) {
 
     /**
     * createCompany

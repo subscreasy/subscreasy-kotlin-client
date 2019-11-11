@@ -1,6 +1,6 @@
 # CompanyPropsResourceApi
 
-All URIs are relative to *https://localhost:8080*
+All URIs are relative to *https://app.subscreasy.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -9,6 +9,8 @@ Method | HTTP request | Description
 [**getAllCompanyPropsUsingGET**](CompanyPropsResourceApi.md#getAllCompanyPropsUsingGET) | **GET** /api/company-props | getAllCompanyProps
 [**getCompanyPropsByCompanyIdUsingGET**](CompanyPropsResourceApi.md#getCompanyPropsByCompanyIdUsingGET) | **GET** /api/company-props/company/{companyId} | getCompanyPropsByCompanyId
 [**updateCompanyPropsUsingPUT**](CompanyPropsResourceApi.md#updateCompanyPropsUsingPUT) | **PUT** /api/company-props | updateCompanyProps
+[**uploadCSSUsingPOST**](CompanyPropsResourceApi.md#uploadCSSUsingPOST) | **POST** /api/company-props/uploadCSS | uploadCSS
+[**uploadFileUsingPOST**](CompanyPropsResourceApi.md#uploadFileUsingPOST) | **POST** /api/company-props/uploadFile | uploadFile
 
 
 <a name="createCompanyPropsUsingPOST"></a>
@@ -229,5 +231,95 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
+ - **Accept**: */*
+
+<a name="uploadCSSUsingPOST"></a>
+# **uploadCSSUsingPOST**
+> kotlin.Any uploadCSSUsingPOST(file)
+
+uploadCSS
+
+### Example
+```kotlin
+// Import classes:
+//import io.swagger.client.infrastructure.*
+//import com.kodfarki.subscreasy.client.model.*
+
+val apiInstance = CompanyPropsResourceApi()
+val file : java.io.File = /path/to/file.txt // java.io.File | file
+try {
+    val result : kotlin.Any = apiInstance.uploadCSSUsingPOST(file)
+    println(result)
+} catch (e: ClientException) {
+    println("4xx response calling CompanyPropsResourceApi#uploadCSSUsingPOST")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling CompanyPropsResourceApi#uploadCSSUsingPOST")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **file** | **java.io.File**| file |
+
+### Return type
+
+[**kotlin.Any**](kotlin.Any.md)
+
+### Authorization
+
+[apiKey](../README.md#apiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: multipart/form-data
+ - **Accept**: */*
+
+<a name="uploadFileUsingPOST"></a>
+# **uploadFileUsingPOST**
+> kotlin.Any uploadFileUsingPOST(file)
+
+uploadFile
+
+### Example
+```kotlin
+// Import classes:
+//import io.swagger.client.infrastructure.*
+//import com.kodfarki.subscreasy.client.model.*
+
+val apiInstance = CompanyPropsResourceApi()
+val file : java.io.File = /path/to/file.txt // java.io.File | file
+try {
+    val result : kotlin.Any = apiInstance.uploadFileUsingPOST(file)
+    println(result)
+} catch (e: ClientException) {
+    println("4xx response calling CompanyPropsResourceApi#uploadFileUsingPOST")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling CompanyPropsResourceApi#uploadFileUsingPOST")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **file** | **java.io.File**| file |
+
+### Return type
+
+[**kotlin.Any**](kotlin.Any.md)
+
+### Authorization
+
+[apiKey](../README.md#apiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: multipart/form-data
  - **Accept**: */*
 

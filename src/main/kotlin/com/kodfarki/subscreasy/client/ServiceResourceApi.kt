@@ -15,7 +15,7 @@ import com.kodfarki.subscreasy.client.model.Service
 
 import io.swagger.client.infrastructure.*
 
-class ServiceResourceApi(basePath: kotlin.String = "https://localhost:8080") : ApiClient(basePath) {
+class ServiceResourceApi(basePath: kotlin.String = "https://app.subscreasy.com") : ApiClient(basePath) {
 
     /**
     * createService

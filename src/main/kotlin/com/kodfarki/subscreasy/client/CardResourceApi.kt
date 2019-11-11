@@ -11,162 +11,36 @@
 */
 package com.kodfarki.subscreasy.client
 
-import com.kodfarki.subscreasy.client.model.SavedCard
+import com.kodfarki.subscreasy.client.model.SaveCardRequest
 
 import io.swagger.client.infrastructure.*
 
-class CardResourceApi(basePath: kotlin.String = "https://localhost:8080") : ApiClient(basePath) {
+class CardResourceApi(basePath: kotlin.String = "https://app.subscreasy.com") : ApiClient(basePath) {
 
     /**
-    * createCard
+    * saveCard
     * 
-    * @param card card 
-    * @return SavedCard
+    * @param request request 
+    * @return kotlin.Any
     */
     @Suppress("UNCHECKED_CAST")
-    fun createCardUsingPOST(card: SavedCard) : SavedCard {
-        val localVariableBody: kotlin.Any? = card
+    fun saveCardUsingPOST(request: SaveCardRequest) : kotlin.Any {
+        val localVariableBody: kotlin.Any? = request
         val localVariableQuery: MultiValueMap = mapOf()
         val localVariableHeaders: kotlin.collections.Map<kotlin.String,kotlin.String> = mapOf()
         val localVariableConfig = RequestConfig(
             RequestMethod.POST,
-            "/api/cards",
+            "/api/card",
             query = localVariableQuery,
             headers = localVariableHeaders
         )
-        val response = request<SavedCard>(
+        val response = request<kotlin.Any>(
             localVariableConfig,
             localVariableBody
         )
 
         return when (response.responseType) {
-            ResponseType.Success -> (response as Success<*>).data as SavedCard
-            ResponseType.Informational -> TODO()
-            ResponseType.Redirection -> TODO()
-            ResponseType.ClientError -> throw ClientException((response as ClientError<*>).body as? String ?: "Client error")
-            ResponseType.ServerError -> throw ServerException((response as ServerError<*>).message ?: "Server error")
-            else -> throw kotlin.IllegalStateException("Undefined ResponseType.")
-        }
-    }
-
-    /**
-    * deleteCard
-    * 
-    * @param id id 
-    * @return void
-    */
-    fun deleteCardUsingDELETE(id: kotlin.Long) : Unit {
-        val localVariableBody: kotlin.Any? = null
-        val localVariableQuery: MultiValueMap = mapOf()
-        val localVariableHeaders: kotlin.collections.Map<kotlin.String,kotlin.String> = mapOf()
-        val localVariableConfig = RequestConfig(
-            RequestMethod.DELETE,
-            "/api/cards/{id}".replace("{"+"id"+"}", "$id"),
-            query = localVariableQuery,
-            headers = localVariableHeaders
-        )
-        val response = request<Any?>(
-            localVariableConfig,
-            localVariableBody
-        )
-
-        return when (response.responseType) {
-            ResponseType.Success -> Unit
-            ResponseType.Informational -> TODO()
-            ResponseType.Redirection -> TODO()
-            ResponseType.ClientError -> throw ClientException((response as ClientError<*>).body as? String ?: "Client error")
-            ResponseType.ServerError -> throw ServerException((response as ServerError<*>).message ?: "Server error")
-            else -> throw kotlin.IllegalStateException("Undefined ResponseType.")
-        }
-    }
-
-    /**
-    * getAllCards
-    * 
-    * @return kotlin.Array<SavedCard>
-    */
-    @Suppress("UNCHECKED_CAST")
-    fun getAllCardsUsingGET() : kotlin.Array<SavedCard> {
-        val localVariableBody: kotlin.Any? = null
-        val localVariableQuery: MultiValueMap = mapOf()
-        val localVariableHeaders: kotlin.collections.Map<kotlin.String,kotlin.String> = mapOf()
-        val localVariableConfig = RequestConfig(
-            RequestMethod.GET,
-            "/api/cards",
-            query = localVariableQuery,
-            headers = localVariableHeaders
-        )
-        val response = request<kotlin.Array<SavedCard>>(
-            localVariableConfig,
-            localVariableBody
-        )
-
-        return when (response.responseType) {
-            ResponseType.Success -> (response as Success<*>).data as kotlin.Array<SavedCard>
-            ResponseType.Informational -> TODO()
-            ResponseType.Redirection -> TODO()
-            ResponseType.ClientError -> throw ClientException((response as ClientError<*>).body as? String ?: "Client error")
-            ResponseType.ServerError -> throw ServerException((response as ServerError<*>).message ?: "Server error")
-            else -> throw kotlin.IllegalStateException("Undefined ResponseType.")
-        }
-    }
-
-    /**
-    * getCard
-    * 
-    * @param id id 
-    * @return SavedCard
-    */
-    @Suppress("UNCHECKED_CAST")
-    fun getCardUsingGET(id: kotlin.Long) : SavedCard {
-        val localVariableBody: kotlin.Any? = null
-        val localVariableQuery: MultiValueMap = mapOf()
-        val localVariableHeaders: kotlin.collections.Map<kotlin.String,kotlin.String> = mapOf()
-        val localVariableConfig = RequestConfig(
-            RequestMethod.GET,
-            "/api/cards/{id}".replace("{"+"id"+"}", "$id"),
-            query = localVariableQuery,
-            headers = localVariableHeaders
-        )
-        val response = request<SavedCard>(
-            localVariableConfig,
-            localVariableBody
-        )
-
-        return when (response.responseType) {
-            ResponseType.Success -> (response as Success<*>).data as SavedCard
-            ResponseType.Informational -> TODO()
-            ResponseType.Redirection -> TODO()
-            ResponseType.ClientError -> throw ClientException((response as ClientError<*>).body as? String ?: "Client error")
-            ResponseType.ServerError -> throw ServerException((response as ServerError<*>).message ?: "Server error")
-            else -> throw kotlin.IllegalStateException("Undefined ResponseType.")
-        }
-    }
-
-    /**
-    * updateCard
-    * 
-    * @param card card 
-    * @return SavedCard
-    */
-    @Suppress("UNCHECKED_CAST")
-    fun updateCardUsingPUT(card: SavedCard) : SavedCard {
-        val localVariableBody: kotlin.Any? = card
-        val localVariableQuery: MultiValueMap = mapOf()
-        val localVariableHeaders: kotlin.collections.Map<kotlin.String,kotlin.String> = mapOf()
-        val localVariableConfig = RequestConfig(
-            RequestMethod.PUT,
-            "/api/cards",
-            query = localVariableQuery,
-            headers = localVariableHeaders
-        )
-        val response = request<SavedCard>(
-            localVariableConfig,
-            localVariableBody
-        )
-
-        return when (response.responseType) {
-            ResponseType.Success -> (response as Success<*>).data as SavedCard
+            ResponseType.Success -> (response as Success<*>).data as kotlin.Any
             ResponseType.Informational -> TODO()
             ResponseType.Redirection -> TODO()
             ResponseType.ClientError -> throw ClientException((response as ClientError<*>).body as? String ?: "Client error")

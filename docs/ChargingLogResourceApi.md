@@ -1,6 +1,6 @@
 # ChargingLogResourceApi
 
-All URIs are relative to *https://localhost:8080*
+All URIs are relative to *https://app.subscreasy.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -8,6 +8,8 @@ Method | HTTP request | Description
 [**deleteChargingLogUsingDELETE**](ChargingLogResourceApi.md#deleteChargingLogUsingDELETE) | **DELETE** /api/charging-logs/{id} | deleteChargingLog
 [**getAllChargingLogsUsingGET**](ChargingLogResourceApi.md#getAllChargingLogsUsingGET) | **GET** /api/charging-logs | getAllChargingLogs
 [**getChargingLogUsingGET**](ChargingLogResourceApi.md#getChargingLogUsingGET) | **GET** /api/charging-logs/{id} | getChargingLog
+[**getChargingLogsByStatusUsingGET**](ChargingLogResourceApi.md#getChargingLogsByStatusUsingGET) | **GET** /api/charging-logs/status/{status} | getChargingLogsByStatus
+[**getPaymentsByMerchantSubscriberIdUsingGET**](ChargingLogResourceApi.md#getPaymentsByMerchantSubscriberIdUsingGET) | **GET** /api/charging-logs/subscriber/m/{merchantSubscriberId} | getPaymentsByMerchantSubscriberId
 [**refundUsingPOST**](ChargingLogResourceApi.md#refundUsingPOST) | **POST** /api/charging-logs/refund/{chargingLogId} | refund
 [**updateChargingLogUsingPUT**](ChargingLogResourceApi.md#updateChargingLogUsingPUT) | **PUT** /api/charging-logs | updateChargingLog
 
@@ -185,6 +187,108 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**ChargingLog**](ChargingLog.md)
+
+### Authorization
+
+[apiKey](../README.md#apiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: */*
+
+<a name="getChargingLogsByStatusUsingGET"></a>
+# **getChargingLogsByStatusUsingGET**
+> kotlin.Array&lt;ChargingLog&gt; getChargingLogsByStatusUsingGET(status, page, size, sort)
+
+getChargingLogsByStatus
+
+### Example
+```kotlin
+// Import classes:
+//import io.swagger.client.infrastructure.*
+//import com.kodfarki.subscreasy.client.model.*
+
+val apiInstance = ChargingLogResourceApi()
+val status : kotlin.String = status_example // kotlin.String | status
+val page : kotlin.Int = 56 // kotlin.Int | Page number of the requested page
+val size : kotlin.Int = 56 // kotlin.Int | Size of a page
+val sort : kotlin.Array<kotlin.String> =  // kotlin.Array<kotlin.String> | Sorting criteria in the format: property(,asc|desc). Default sort order is ascending. Multiple sort criteria are supported.
+try {
+    val result : kotlin.Array<ChargingLog> = apiInstance.getChargingLogsByStatusUsingGET(status, page, size, sort)
+    println(result)
+} catch (e: ClientException) {
+    println("4xx response calling ChargingLogResourceApi#getChargingLogsByStatusUsingGET")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling ChargingLogResourceApi#getChargingLogsByStatusUsingGET")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **status** | **kotlin.String**| status |
+ **page** | **kotlin.Int**| Page number of the requested page | [optional]
+ **size** | **kotlin.Int**| Size of a page | [optional]
+ **sort** | [**kotlin.Array&lt;kotlin.String&gt;**](kotlin.String.md)| Sorting criteria in the format: property(,asc|desc). Default sort order is ascending. Multiple sort criteria are supported. | [optional]
+
+### Return type
+
+[**kotlin.Array&lt;ChargingLog&gt;**](ChargingLog.md)
+
+### Authorization
+
+[apiKey](../README.md#apiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: */*
+
+<a name="getPaymentsByMerchantSubscriberIdUsingGET"></a>
+# **getPaymentsByMerchantSubscriberIdUsingGET**
+> kotlin.Array&lt;ChargingLog&gt; getPaymentsByMerchantSubscriberIdUsingGET(merchantSubscriberId, page, size, sort)
+
+getPaymentsByMerchantSubscriberId
+
+### Example
+```kotlin
+// Import classes:
+//import io.swagger.client.infrastructure.*
+//import com.kodfarki.subscreasy.client.model.*
+
+val apiInstance = ChargingLogResourceApi()
+val merchantSubscriberId : kotlin.String = merchantSubscriberId_example // kotlin.String | merchantSubscriberId
+val page : kotlin.Int = 56 // kotlin.Int | Page number of the requested page
+val size : kotlin.Int = 56 // kotlin.Int | Size of a page
+val sort : kotlin.Array<kotlin.String> =  // kotlin.Array<kotlin.String> | Sorting criteria in the format: property(,asc|desc). Default sort order is ascending. Multiple sort criteria are supported.
+try {
+    val result : kotlin.Array<ChargingLog> = apiInstance.getPaymentsByMerchantSubscriberIdUsingGET(merchantSubscriberId, page, size, sort)
+    println(result)
+} catch (e: ClientException) {
+    println("4xx response calling ChargingLogResourceApi#getPaymentsByMerchantSubscriberIdUsingGET")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling ChargingLogResourceApi#getPaymentsByMerchantSubscriberIdUsingGET")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **merchantSubscriberId** | **kotlin.String**| merchantSubscriberId |
+ **page** | **kotlin.Int**| Page number of the requested page | [optional]
+ **size** | **kotlin.Int**| Size of a page | [optional]
+ **sort** | [**kotlin.Array&lt;kotlin.String&gt;**](kotlin.String.md)| Sorting criteria in the format: property(,asc|desc). Default sort order is ascending. Multiple sort criteria are supported. | [optional]
+
+### Return type
+
+[**kotlin.Array&lt;ChargingLog&gt;**](ChargingLog.md)
 
 ### Authorization
 
